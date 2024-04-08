@@ -1,0 +1,96 @@
+<app-user></app-user>
+
+<div class="profiletable">
+  <label class="yourprofile"><strong>YOUR PROFILE</strong></label>
+
+  
+  <button class="updateprofile prof-button" (click)="openProfilePopup()">Update Profile</button>
+  
+  <button  class="changepassword pass-button" (click)="openPopup()">Change Password</button>
+
+  <br><br>
+  <table class="table customTable" style="width: 1220px; ">
+    <tbody>
+      <tr>
+        <td class="text-muted">Roll Number</td>
+        <td class="text-muted"> {{studentData?.rollnumber}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Hostel</td>
+        <td class="text-muted"> {{studentData?.hostel}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Floor</td>
+        <td class="text-muted"> {{studentData?.floor}} </td>
+      </tr>
+      <tr>
+        <td class="text-muted">Room</td>
+        <td class="text-muted"> {{studentData?.room}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ 'display': displayStyle }">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Change Password</h4>
+          <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #passwordChange="ngForm" (ngSubmit)="changePassword(passwordChange.value)">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Current Password</label>
+              <input type="password" name="currentPassword" 
+                [ngStyle]="{ 'border-color': currentBorderColor, 'border-width': '2px' }" ngModel class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">New Password</label>
+              <input type="password" minlength="6"
+                [ngStyle]="{ 'border-color': inputBorderColor, 'border-width': '2px' }" name="newPassword" ngModel required #passwordInput="ngModel"
+                class="form-control" id="exampleInputPassword1"> 
+                <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message  text-danger mt-2 mb-0">
+                  Password should be min 6 characters
+                </div>
+              </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password"
+                [ngStyle]="{ 'border-color': inputBorderColor, 'border-width': '2px' }" name="confirmPassword"
+                ngModel class="form-control" id="confirmPassword">
+            </div>
+            <button type="submit" class="btn btn-primary">Change</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': profileDisplayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Update Profile</h4>
+          <button type="button" class="btn-close" (click)="closeProfilePopup()" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #profileUpdateForm="ngForm" (ngSubmit)="updateProfile(profileUpdateForm.value)">
+            <!-- <div class="mb-3">
+              <label for="hostel" class="form-label">Hostel</label>
+              <input type="text" name="hostel" ngModel class="form-control" id="hostel">
+            </div> -->
+            <div class="mb-3">
+              <label for="floor" class="form-label">Floor</label>
+              <input type="text" name="floor" ngModel class="form-control" id="floor">
+            </div>
+            <div class="mb-3">
+              <label for="room" class="form-label">Room</label>
+              <input type="text" name="room" ngModel class="form-control" id="room">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

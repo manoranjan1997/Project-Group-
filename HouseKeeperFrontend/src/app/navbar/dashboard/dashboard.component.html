@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<!-- //ADMIN  -->
+<div 
+class="scrollspy-example dashboard-div  p-3 rounded-2">
+ <label style="color: rgb(0, 0, 0); font-weight: 500;">MAINTANCE LOG </label>   
+ <table  class="table customTable mt-3">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">HOUSEKEEPER</th>
+        <th scope="col">ROOM</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TIME REQUESTED</th>
+        <th scope="col">STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of AllClientRequestData">
+        <th scope="row" *ngIf="data.req_status===false">
+          <button routerLink="/admin/allot/{{data.request_id}}/{{AdminDetails.hostel}}" class="btn btn-primary" 
+          style="width:49px; font-size: 10px; background-color:#6CB4EE;">Allot</button>
+        </th>
+        <td scope="row" *ngIf="data.req_status===true">
+          {{data.worker.name}}
+        </td>
+          <td> {{data.student.room}} </td>  
+        <!-- //date  -->
+<td>{{ data.date | date:'yyyy-MM-dd' }}</td>
+
+        <td> {{data.cleanTime}} </td>
+        <td >
+          
+          <span *ngIf="data.feedback_status===true else pending" class="completed-txt"> COMPLETED</span>
+          <ng-template #pending>
+             <span class="text-center"> - </span>
+          </ng-template>
+        </td>
+      </tr>
+      <tr *ngIf="AllClientRequestData?.length==0">
+        <td colspan="5" class="text-center">
+          <span> No Data Found</span>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+</div>
+
+

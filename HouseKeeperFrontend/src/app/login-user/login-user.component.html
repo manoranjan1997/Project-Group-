@@ -1,0 +1,33 @@
+
+  <div class="master">
+    <img class="imageDiv img-fluid" src="../../assets/images/loginbg.jpg"> 
+    <div class="loginDiv">
+      <div class="text-center text-white"><h2>STUDENT LOGIN</h2></div>
+      <br>
+      <div class="formDiv">
+        <form #form="ngForm" (ngSubmit)="checkUser(form.value)">
+          <label for="EmailInput" class="text-white">Roll Number</label>
+          <input type="email" ngModel id="EmailInput" name="rollnumber" class="form-control" required/>
+          <br>
+          <label for="PasswordInput" class="text-white">Password</label>
+          <input type="password" ngModel name="password" id="PasswordInput" class="form-control" required/>
+          
+          <div class="row mt-4">
+            <div class="col-md-6"> 
+              <button class="btn btn-primary loginButton w-100"><strong>Login</strong></button>
+            </div>
+            <div class="col-md-6"> 
+              <button class="btn btn-info  signupBtn w-100" (click)="backToSignup()"><strong>Signup</strong></button>
+            </div>
+          </div>
+
+         
+        </form>
+        <div class="text-center mt-3"><strong class="error-text">{{notMatch}}</strong></div>
+   
+      </div>
+      <div class="row text-center">
+        <a class="signup-link" (click)="goToMainPage()"> Back to Main Page</a>
+      </div>
+    </div>
+  </div>

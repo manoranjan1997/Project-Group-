@@ -1,0 +1,21 @@
+<app-user></app-user>
+
+<div style="margin-left:320px;margin-top: 3%; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281); margin-right: 270px; padding: 20px;">
+
+    <label class="text-muted ms-5 mt-2" style="font-size: 16px;" ><strong>SEND FEEDBACK</strong></label>
+    <br><br>
+    <form class="row g-3" #form="ngForm" (ngSubmit)="submitFeedback(form.value)">
+      <!-- <div class="col-md-3 ms-5">
+        <label for="requestId" class="form-label text-muted">Request Id</label>
+        <input type="text" name="requestId" class="form-control" [value]="cleanRequestData[0]?.worker.name" readonly>
+      </div> -->
+      <div class="col-10 ms-5">
+        <label for="feedback" class="form-label text-muted">Feedback</label>
+        <input type="text" name="feedback" class="form-control" ngModel id="feedback">
+      </div>
+      <div class="col-8 ms-5">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    
+</div>

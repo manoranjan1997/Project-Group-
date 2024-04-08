@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div style="margin-left:280px; margin-top: 3%;">
+
+    <label class="text-muted ms-5" style="font-size: 18px;"><strong>REGISTER HOUSEKEEPER</strong></label>
+    <br><br>
+    <form class="row g-3" #form="ngForm" (ngSubmit)="registerHousekeeper(form.value)">
+        <div class="col-md-2 ms-5">
+          <label for="inputRoll" class="form-label text-muted">HouseKeeper Name</label>
+          <input type="text" ngModel class="form-control" id="inputRoll" name="name" placeholder="Housekeeper Name">
+        </div>
+        <div class="col-md-2 ms-5">
+            <label for="inputRoom" class="form-label text-muted">Floor Number</label>
+            <input type="number" ngModel name="floor" class="form-control" id="inputRoom" placeholder="Enter numeric value">
+          </div>
+          <div class="col-12 ms-5">
+            <button class="btn btn-primary">Register</button>
+          </div>
+    </form>
+</div>
+<div style="font-size: 17px; margin-left:300px; margin-top: 1%; width: 79%; background-color:#ffffff;  border-radius: 8px;
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);" class="scrollspy-example  p-3 rounded-2">
+  <label style="color: rgb(0, 0, 0); margin-bottom: 10px;">Housekeepers Data</label>   
+  <table class="table customTable">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">ID NO</th>
+        <th scope="col">HOUSEKEEPER NAME</th>
+        <th scope="col">FLOOR NO</th>
+        <th scope="col">HOSTEL NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="customTable" *ngFor="let data of WorkerDetails">
+        <td>{{ data.worker_id }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.floor}}</td>
+        <td>{{ data.hostel}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

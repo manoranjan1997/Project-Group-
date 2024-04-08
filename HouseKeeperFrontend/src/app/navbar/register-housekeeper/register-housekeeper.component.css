@@ -1,0 +1,12 @@
+::placeholder{
+    font-size: 10px;
+}
+
+.customTable thead tr th{
+
+    font-size: 13px;
+}
+
+.customTable tr {
+    border-bottom: 1px solid black; /* Adjust the line width and color as needed */
+  }

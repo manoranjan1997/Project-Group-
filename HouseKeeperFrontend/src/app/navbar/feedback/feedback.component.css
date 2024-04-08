@@ -1,0 +1,9 @@
+.customTable thead tr th{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.customTable tr {
+    border-bottom: 1px solid black; /* Adjust the line width and color as needed */
+  }

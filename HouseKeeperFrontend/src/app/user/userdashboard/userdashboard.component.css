@@ -1,0 +1,47 @@
+/* .customTable thead tr th{
+    font-size: 8px;
+} */
+
+.customTable tr {
+    border-bottom: 1px solid black; /* Adjust the line width and color as needed */
+  }
+  .th-text{
+    font-size: 14px;
+  }
+
+  .dashTable-div{
+    margin-left:290px;  
+    margin-top: 2%;  
+    margin-right: 3%; 
+    background-color: #ffffff;
+    width: 80%;
+    font-size: 17px; 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);
+    border-radius: 8px;
+  }
+  .feedback-txt{
+    font-size: 16px; 
+    color: green;
+    
+  }
+  .yetAllot{
+    font-size: 10px; color: red;
+  }
+  .worker-name{
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .provideFeedack-link{
+    text-decoration: none;
+
+  }
+
+  .provideFeedack-link:hover{
+     text-decoration: underline;
+     cursor: pointer;
+  }
+
+  .sidenav button.logout:hover {
+    background-color: #fd5c63;
+    color: #ffffff;
+}

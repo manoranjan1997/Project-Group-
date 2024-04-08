@@ -1,0 +1,119 @@
+Add this to your existing CSS styles
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    margin-top: 5px;
+    visibility: visible;
+    height: 0;
+  }
+  
+  .error-message.active {
+    visibility: visible;
+    height: auto;
+  }
+  
+  body.dark-bg {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .imageDiv {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .registrationDiv {
+    background-color: transparent;
+    width: 30%;
+    position: absolute;
+    top: 10%;
+    left: 32%;
+  }
+  
+  .text-white {
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight: bold;
+    color: #fff;
+    padding-right: 90px;
+  }
+  .text-center {
+    margin-left: 50px;
+  }
+  
+   .registrationDiv {
+    background-color: rgba(58, 53, 53, 0.229);
+    width: 500px;
+    height: 85%;
+    font-size: 20px;
+    margin-left: 25px;
+    padding-left: 50px;
+    padding-top: 10px;
+    border-radius: 20px;
+
+  }
+  input {
+    width: 60%;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.336);
+    padding: 10px;
+    border-color: 2px solid rgb(255, 255, 255);
+    border-width: 0px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+ 
+  }
+  
+  .form-group {
+    width: 150%;
+    font-size: 20px;
+  }
+  
+  .form-control {
+    background: transparent;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 22px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .loginButton {
+    margin-left: 100px;
+    width: 150px;
+    background-color: #b7b7b7;
+    color: #000;
+    border: none;
+    border-radius: 22px;
+    margin-top: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .error-text {
+    color: red;
+  }
+  
+  .signup-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .formtext {
+    text-align: left;
+    color: white
+  }  
+
+.adminbutton{
+    background-color: transparent;
+    color: white;
+    border: none;
+   padding-left: 45px;
+  }

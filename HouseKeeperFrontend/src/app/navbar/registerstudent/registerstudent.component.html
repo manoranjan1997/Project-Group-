@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div style="margin-left:320px;margin-top: 4%; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281); margin-right: 270px; padding: 20px;">
+
+    <label class="text-muted ms-5"><strong>REGISTER STUDENT</strong></label>
+    <br><br>
+    <form class="row g-3" #submitForm="ngForm" (ngSubmit)="registerStudent(submitForm.value)">
+        <div class="col-md-2 ms-5">
+          <label for="inputRoll" class="form-label text-muted">Roll Number</label>
+          <input type="number" name="rollnumber" ngModel class="form-control" id="inputRoll" placeholder="Enter numeric value">
+        </div>
+        <div class="col-md-2 ms-5">
+            <label for="inputRoom" class="form-label text-muted">Room Number</label>
+            <input type="text" name="room" ngModel class="form-control" id="inputRoom" placeholder="Enter Room Number">
+          </div>  
+          <div class="col-md-2 ms-5">
+            <label for="inputFloor" class="form-label text-muted">Floor</label>
+            <input type="number" name="floor" ngModel class="form-control" id="inputFloor" placeholder="Enter Floor Number">
+          </div>
+          <div class="col-12 ms-5">
+            <button class="btn btn-primary">Register</button>
+          </div>
+    </form>
+</div>

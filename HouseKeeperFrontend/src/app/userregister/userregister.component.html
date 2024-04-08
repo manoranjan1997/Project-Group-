@@ -1,0 +1,52 @@
+
+
+  <div class="master">
+    <!-- <img class="imageDiv img-fluid" src="../../assets/ro9.webp">  -->
+    <img class=" imageDiv img-fluid" src="../../assets/images/signupbg.jpg">
+    <div class="loginDiv">
+      
+      <div class="text-center text-white"><h2>STUDENT REGISTRATION</h2></div>
+      <br>
+      <div class="formDiv">
+        <form (ngSubmit)="registerStudent()" #registrationForm="ngForm" >
+          <label for="rollnumber" class="text-white" style="text-align: center;">Roll Number</label>
+          <input type="text" id="rollnumber" [(ngModel)]="user.rollnumber" name="rollnumber" #rollnumberInput="ngModel" class="form-control" required>
+          <div *ngIf="rollnumberInput.invalid && (rollnumberInput.dirty || rollnumberInput.touched)" class="error-text">
+            Roll Number is required
+          </div>
+          <br>
+          <label for="password" class="text-white">Password</label>
+          <input type="password" minlength="6" id="password" [(ngModel)]="user.password" name="password" #passwordInput="ngModel" class="form-control" required>
+          <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-text">
+            Password should be atleast 6 characters
+          </div>
+          <br>
+          <label for="hostel" class="text-white">Hostel</label>
+          <input type="text" id="hostel" [(ngModel)]="user.hostel" name="hostel" #hostelInput="ngModel" class="form-control" required>
+          <div *ngIf="hostelInput.invalid && (hostelInput.dirty || hostelInput.touched)" class="error-text">
+            Hostel Name is required
+          </div>
+          <br>
+          <label for="floor" class="text-white">Floor Number</label>
+          <input type="text" id="floor" [(ngModel)]="user.floor" name="floor" #floorInput="ngModel" class="form-control" required>
+          <div *ngIf="floorInput.invalid && (floorInput.dirty || floorInput.touched)" class="error-text">
+            Floor Number is required
+          </div>
+          <br>
+          <label for="room" class="text-white">Room Number</label>
+          <input type="text" id="room" [(ngModel)]="user.room" name="room" #roomInput="ngModel" class="form-control" required>
+          <div *ngIf="roomInput.invalid && (roomInput.dirty || roomInput.touched)" class="error-text">
+            Room Number is required
+          </div>
+          <br>
+          <div class="text-center d-grid gap-2">
+            <button type="submit" class="btn btn-primary loginButton" [disabled]="registrationForm.invalid"><strong>Register</strong></button>
+          </div>
+        </form>
+                <div>
+          <button class="userbutton" (click)="goTologinPage()">Already having an Account? Login</button></div> 
+      </div>
+    </div>
+  </div>
+
+

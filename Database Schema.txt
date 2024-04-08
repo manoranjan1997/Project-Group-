@@ -1,0 +1,120 @@
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`admin` (
+  `admin_id` INT NOT NULL AUTO_INCREMENT,
+  `hostel` VARCHAR(255) NULL DEFAULT NULL,
+  `password` VARCHAR(255) NULL DEFAULT NULL,
+  `username` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`admin_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`worker` (
+  `worker_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `floor` INT NOT NULL,
+  `hostel` VARCHAR(255) NULL DEFAULT NULL,
+  `name` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`worker_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`student` (
+  `rollnumber` BIGINT NOT NULL,
+  `floor` INT NOT NULL,
+  `hostel` VARCHAR(255) NULL DEFAULT NULL,
+  `password` VARCHAR(255) NULL DEFAULT NULL,
+  `room` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`rollnumber`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`clean_request` (
+  `request_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `clean_time` TIME NULL DEFAULT NULL,
+  `date` DATE NULL DEFAULT NULL,
+  `feedback_status` BIT(1) NOT NULL,
+  `req_status` BIT(1) NOT NULL,
+  `rollnumber` BIGINT NULL DEFAULT NULL,
+  `worker_id` BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (`request_id`),
+  INDEX `FK47xo5vv6uu6wh6cauwq03f51k` (`rollnumber` ASC) VISIBLE,
+  INDEX `FKf0q0yidj1oes6yg82se2qbdf3` (`worker_id` ASC) VISIBLE,
+  CONSTRAINT `FK47xo5vv6uu6wh6cauwq03f51k`
+    FOREIGN KEY (`rollnumber`)
+    REFERENCES `housekeeperdemo1`.`student` (`rollnumber`),
+  CONSTRAINT `FKf0q0yidj1oes6yg82se2qbdf3`
+    FOREIGN KEY (`worker_id`)
+    REFERENCES `housekeeperdemo1`.`worker` (`worker_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`worker_clean_request` (
+  `worker_worker_id` BIGINT NOT NULL,
+  `clean_request_request_id` BIGINT NOT NULL,
+  UNIQUE INDEX `UK_9ef3ajfjx0u0tbxm40u0lfebq` (`clean_request_request_id` ASC) VISIBLE,
+  INDEX `FK7n8iw50k6hlwsvxm4p3nja4ds` (`worker_worker_id` ASC) VISIBLE,
+  CONSTRAINT `FK7n8iw50k6hlwsvxm4p3nja4ds`
+    FOREIGN KEY (`worker_worker_id`)
+    REFERENCES `housekeeperdemo1`.`worker` (`worker_id`),
+  CONSTRAINT `FKliemt8h6c9ud05vnphnqdbk7t`
+    FOREIGN KEY (`clean_request_request_id`)
+    REFERENCES `housekeeperdemo1`.`clean_request` (`request_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`student_request_id` (
+  `student_rollnumber` BIGINT NOT NULL,
+  `request_id_request_id` BIGINT NOT NULL,
+  UNIQUE INDEX `UK_r6pe5foggf3m17k3j42jkfsme` (`request_id_request_id` ASC) VISIBLE,
+  INDEX `FK7285iya4qx0wpmseovo9d80qw` (`student_rollnumber` ASC) VISIBLE,
+  CONSTRAINT `FK7285iya4qx0wpmseovo9d80qw`
+    FOREIGN KEY (`student_rollnumber`)
+    REFERENCES `housekeeperdemo1`.`student` (`rollnumber`),
+  CONSTRAINT `FKq38lcc3ks35qosnmdlk5igmhw`
+    FOREIGN KEY (`request_id_request_id`)
+    REFERENCES `housekeeperdemo1`.`clean_request` (`request_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`student_feedbacks` (
+  `student_rollnumber` BIGINT NOT NULL,
+  `feedbacks_feedback_id` BIGINT NOT NULL,
+  UNIQUE INDEX `UK_15n8bqv74yl6qxgydsdm4qqc4` (`feedbacks_feedback_id` ASC) VISIBLE,
+  INDEX `FK38mnbkh71cjo61gys1qv7wqnq` (`student_rollnumber` ASC) VISIBLE,
+  CONSTRAINT `FK38mnbkh71cjo61gys1qv7wqnq`
+    FOREIGN KEY (`student_rollnumber`)
+    REFERENCES `housekeeperdemo1`.`student` (`rollnumber`),
+  CONSTRAINT `FKqdqml27lj91p1wv2p95ng0qe1`
+    FOREIGN KEY (`feedbacks_feedback_id`)
+    REFERENCES `housekeeperdemo1`.`feedback` (`feedback_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `housekeeperdemo1`.`feedback` (
+  `feedback_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `feedback` VARCHAR(3000) NULL DEFAULT NULL,
+  `request_id` BIGINT NULL DEFAULT NULL,
+  `rollnumber` BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (`feedback_id`),
+  INDEX `FK96upbmjce91hbagr6030dy3ny` (`request_id` ASC) VISIBLE,
+  INDEX `FK2257spm361ysobt3ecj8d5vry` (`rollnumber` ASC) VISIBLE,
+  CONSTRAINT `FK2257spm361ysobt3ecj8d5vry`
+    FOREIGN KEY (`rollnumber`)
+    REFERENCES `housekeeperdemo1`.`student` (`rollnumber`),
+  CONSTRAINT `FK96upbmjce91hbagr6030dy3ny`
+    FOREIGN KEY (`request_id`)
+    REFERENCES `housekeeperdemo1`.`clean_request` (`request_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+

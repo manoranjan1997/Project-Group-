@@ -1,0 +1,23 @@
+.customTable thead tr th{
+
+    font-size: 13px;
+}
+
+.customTable tr {
+    border-bottom: 1px solid black; /* Adjust the line width and color as needed */
+  }
+
+  .dashboard-div{
+    font-size: 17px; 
+    margin-left:300px;
+     margin-top: 2%; 
+     width: 79%; 
+     background-color:#fbfdffc9;
+     border-radius: 8px;
+     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);
+  }
+  .completed-txt{
+    font-weight: bold;
+    color: green;
+    font-size: 12px;
+  }

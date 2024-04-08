@@ -1,0 +1,19 @@
+<app-user></app-user>
+<div style="margin-left:320px;margin-top: 3%; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281); margin-right: 270px; padding: 20px;" >
+
+  <label class="text-muted ms-5 mt-3" style="font-size: 18px;"><strong>SEND CLEAN REQUEST</strong></label>
+  <br><br>
+  <form class="row g-3" #form="ngForm" (ngSubmit)="submitRequest(form.value)">
+    <div class="col-md-2 ms-5">
+      <label for="inputEmail4" class="form-label text-muted">Date</label>
+      <input type="date" class="form-control" ngModel id="inputEmail4" name="date" required>
+    </div>
+    <div class="col-md-2 ms-5">
+      <label for="inputEmail" class="form-label text-muted">Available Time</label>
+      <input type="time" class="form-control" ngModel id="inputEmail" name="cleanTime" required>
+    </div>
+    <div class="col-12 ms-5">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

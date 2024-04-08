@@ -1,0 +1,61 @@
+<app-user></app-user>
+
+<div class="scrollspy-example p-4 rounded-2 dashTable-div">
+
+  <table class="table customTable">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col" class="th-text">HOUSEKEEPER</th>
+        <th scope="col"  class="th-text">DATE</th>
+        <th scope="col"  class="th-text">TIME REQUESTED</th>
+        <th scope="col"  class="th-text">FEEDBACK</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of cleanRequestData">
+ 
+        <!-- // worker name or  yet to allocate -->
+        <td scope="row" *ngIf="data.req_status === true">
+          <span class="worker-name">
+            {{ data.worker.name }}
+          </span>
+
+        </td>
+
+        <td *ngIf="data.req_status === false">
+          <span class="yetAllot">
+            Yet to be Alloted
+          </span>
+        </td>
+
+        <!-- //date  -->
+        <td>{{ data.date }}</td>
+
+        <!-- // Clean TIme  -->
+        <td>{{ data.cleanTime }}</td>
+
+        <!-- // FeedBack based on backend data -->
+        <td *ngIf="data.feedback_status === false && data.req_status === true">
+          <a routerLink="/user/complaints/{{ data.request_id }}" class="provideFeedack-link">Provide Feedback</a>
+        </td>
+
+
+        <td *ngIf="data.feedback_status === true">
+          <span class="feedback-txt">
+            Feedback Sent
+          </span>
+
+        </td>
+
+        <td *ngIf="data.feedback_status === false && data.req_status === false">
+          <span> - </span>
+        </td>
+      </tr>
+      <tr *ngIf="cleanRequestData?.length==0">
+        <td colspan="4" class="text-center">
+          <span> No Data Found</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

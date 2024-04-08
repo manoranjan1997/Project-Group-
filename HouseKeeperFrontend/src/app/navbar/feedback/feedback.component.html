@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<br>
+<div style="margin-left:300px; margin-top:2% ; width: 79%;  background-color:#ffffff;  border-radius: 8px;
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);" class="scrollspy-example p-3 rounded-2">
+  <!-- <label style="font-size: 18px;margin-left: 7px; color: rgb(0, 0, 0); margin-bottom: 10px;">FEEDBACK DATA</label>    -->
+  <table class="table customTable" style="font-size: 15px;">
+    <thead class="text-muted">
+      <tr>
+        <th scope="col">Houskeeper Name</th>
+        <th scope="col">Room</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time Requested</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of AllFeedback" class="customTable">
+        <td>{{data.cleanRequest.worker.name}}</td>  
+        <td>{{data.student.room}}</td>
+        <td>{{data.cleanRequest.date}}</td>
+        <td>{{data.cleanRequest.cleanTime}}</td>
+        <td>{{data.feedback}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

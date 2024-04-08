@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+<div style="margin-left:320px;margin-top: 3%; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281); margin-right: 270px; padding: 20px;" *ngIf="cleanRequestData">
+  <label class="text-muted ms-5 mt-2" style="font-size: 15px;"><strong>ALLOT HOUSEKEEPER</strong></label>
+  <br /><br />
+  <form class="row g-3" #form="ngForm" (ngSubmit)="allotHouseKeeper(form.value)">
+    <div class="col-md-2 ms-5">
+      <label class="form-label text-muted">Request Id</label>
+      <input
+        type="text"
+        name="cleanRequestId"
+        value="{{ requestId }}"
+        class="form-control"
+        readonly
+      />
+    </div>
+    <div class="col-md-2 ms-5">
+      <label class="form-label text-muted">Room No</label>
+      <input
+        type="text"
+        value="{{ cleanRequestData.student.room }}"
+        class="form-control"
+        readonly
+      />
+    </div>
+    <div class="col-md-2 ms-5">
+      <label class="form-label text-muted">Floor No</label>
+      <input
+        type="text"
+        value="{{ cleanRequestData.student.floor }}"
+        class="form-control"
+        readonly
+      />
+    </div>
+    <div class="col-md-2 ms-5">
+      <label class="form-label text-muted">Time Requested</label>
+      <input
+        type="text"
+        value="{{ cleanRequestData.cleanTime }}"
+        class="form-control"
+        readonly
+      />
+    </div>
+    <div class="col-7 ms-5">
+      <label for="inputPassword4" class="form-label text-muted">Housekeeper</label>
+      <select class="form-control" ngModel name="houseKeeperId">
+        <option value="{{ data.worker_id }}" *ngFor="let data of houseKeeper">
+          {{ data.name }}
+        </option>
+      </select>
+    </div>
+    <div class="col-12 ms-5">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
